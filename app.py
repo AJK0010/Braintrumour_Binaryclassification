@@ -6,6 +6,19 @@ import numpy as np
 import io
 from PIL import Image
 
+# Install Git LFS (run once)
+git lfs install 
+
+# Tell Git LFS to track the large file
+git lfs track "brain_tumor.h5" 
+
+# Add and commit the files
+git add .
+git commit -m "Initial commit with model tracked by LFS"
+
+# Push to GitHub
+git push origin main
+
 # --- Configuration ---
 # FIX: Changed the model filename to the correct H5 format 
 # that was used and supported by Keras (as seen in the PDF)
