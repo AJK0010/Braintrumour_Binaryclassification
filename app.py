@@ -8,7 +8,7 @@ from PIL import Image
 
 # --- Configuration ---
 # The model file name saved in the PDF
-MODEL_FILENAME = 'model'
+MODEL_FILENAME = 'Braintumor.pkl'
 # The image size used for training the model
 IMG_SIZE = 224 
 
