@@ -17,7 +17,7 @@ from PIL import Image
 !git commit -m "Initial commit with model tracked by LFS"
 
 # Push to GitHub
-git push origin main
+!git push origin main
 
 # --- Configuration ---
 # FIX: Changed the model filename to the correct H5 format 
