@@ -8,7 +8,7 @@ from PIL import Image
 
 # --- Configuration ---
 # The model file name saved in the PDF
-MODEL_FILENAME = 'brain_tumor.h5'
+MODEL_FILENAME = 'model'
 # The image size used for training the model
 IMG_SIZE = 224 
 
