@@ -8,7 +8,7 @@ from PIL import Image
 
 # --- Configuration ---
 # The model file name saved in the PDF
-MODEL_FILENAME = 'Braintumour.pkl'
+MODEL_FILENAME = 'brain_tumor.h5'
 # The image size used for training the model
 IMG_SIZE = 224 
 
@@ -47,6 +47,7 @@ def main():
         model = load_model(MODEL_FILENAME)
         st.success(f"Model '{MODEL_FILENAME}' loaded successfully.")
     except Exception as e:
+        # This is the error handler that was triggered in your screenshot
         st.error(f"Error loading model: {e}")
         st.warning("Please ensure the model file is in the same directory as this script.")
         # Stop execution if model loading fails
@@ -71,14 +72,12 @@ def main():
             # --- Make Prediction ---
             try:
                 # Prediction step (similar to the PDF: model.predict(img_array))
-                # The prediction result is a 2D array, e.g., [[0.95724463]]
                 prediction = model.predict(processed_img)
                 
-                # Get the scalar prediction value (e.g., 0.95724463)
+                # Get the scalar prediction value
                 prediction_value = prediction[0][0]
                 
                 # Apply the decision rule from the PDF (if prediction >= 0.5)
-                # [cite: 63]
                 if prediction_value >= 0.5:
                     result = "🚫 **Positive: You have a brain tumor.**"
                     st.error(result)
