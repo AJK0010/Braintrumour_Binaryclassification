@@ -7,14 +7,14 @@ import io
 from PIL import Image
 
 # Install Git LFS (run once)
-git lfs install 
+!git lfs install 
 
 # Tell Git LFS to track the large file
-git lfs track "brain_tumor.h5" 
+!git lfs track "brain_tumor.h5" 
 
 # Add and commit the files
-git add .
-git commit -m "Initial commit with model tracked by LFS"
+!git add .
+!git commit -m "Initial commit with model tracked by LFS"
 
 # Push to GitHub
 git push origin main
