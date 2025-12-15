@@ -2,6 +2,7 @@ import streamlit as st
 import tensorflow as tf
 import numpy as np
 from PIL import Image
+import os
 
 # =========================
 # PAGE CONFIG
@@ -16,17 +17,17 @@ st.title("🧠 Brain Tumour Binary Classification")
 st.write("Upload an MRI image to predict whether it is **Tumour** or **No Tumour**.")
 
 # =========================
-# LOAD MODEL
+# LOAD MODEL (SAFE PATH)
 # =========================
 @st.cache_resource
 def load_model():
-    model = tf.keras.models.load_model("brain_tumour.h5")
-    return model
+    model_path = os.path.join(os.path.dirname(__file__), "brain_tumor.h5")
+    return tf.keras.models.load_model(model_path)
 
 try:
     model = load_model()
-except:
-    st.error("❌ Model file not found. Please ensure model.h5 is in the same folder.")
+except Exception as e:
+    st.error("❌ Model file not found. Please ensure brain_tumor.h5 is in the same folder.")
     st.stop()
 
 # =========================
