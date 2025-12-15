@@ -20,7 +20,7 @@ st.write("Upload an MRI image to predict whether it is **Tumour** or **No Tumour
 # =========================
 @st.cache_resource
 def load_model():
-    model = tf.keras.models.load_model("model.h5")
+    model = tf.keras.models.load_model("brain_tumour.h5")
     return model
 
 try:
